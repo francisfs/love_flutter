@@ -3,6 +3,7 @@ num primeiroNumero = 0;
 String operacao = '';
 double resultado = 0;
 int resultadoFormatado = 0;
+String tecla = '';
 
 class Calcular {
   void calcular(String tecla) {

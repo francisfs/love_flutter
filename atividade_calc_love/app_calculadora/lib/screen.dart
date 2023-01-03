@@ -31,7 +31,7 @@ class _CalculadoraState extends State<Calculadora> {
         backgroundColor: const Color(0xFF000000),
         appBar: AppBar(
           backgroundColor: const Color(0xFF000000),
-          title: const Text("Calculadora FFS"),
+          title: const Text("Calculadora francis"),
         ),
         body: Center(
           child: Column(
@@ -45,7 +45,7 @@ class _CalculadoraState extends State<Calculadora> {
                     Radius.circular(0.0),
                   ),
                 ),
-                height: 100, //340
+                height: 150, //340
                 width: 410, //410
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -95,7 +95,7 @@ class _CalculadoraState extends State<Calculadora> {
                       botaoRedondo(tecla: '9'),
                       botaoRedondo(
                         tecla: 'x',
-                        cor: const Color(0xFFFF9503),
+                        cor: amarelo,
                       ),
                     ],
                   )
@@ -113,7 +113,7 @@ class _CalculadoraState extends State<Calculadora> {
                       botaoRedondo(tecla: '4'),
                       botaoRedondo(tecla: '5'),
                       botaoRedondo(tecla: '6'),
-                      botaoRedondo(tecla: '-', cor: const Color(0xFFFF9503)),
+                      botaoRedondo(tecla: '-', cor: amarelo),
                     ],
                   )
                 ],
@@ -146,7 +146,7 @@ class _CalculadoraState extends State<Calculadora> {
                     children: [
                       botaoArredondado(tecla: '0'),
                       botaoRedondo(tecla: ","),
-                      botaoRedondo(tecla: '=', cor: const Color(0xFFFF9503)),
+                      botaoRedondo(tecla: '=', cor: amarelo),
                     ],
                   )
                 ],
@@ -159,7 +159,7 @@ class _CalculadoraState extends State<Calculadora> {
   }
 
   // BOTÃO REDONDO
-  Widget botaoRedondo({required String tecla, cor = Colors.blueGrey}) {
+  Widget botaoRedondo({required String tecla, Color? cor}) {
     return ElevatedButton(
       onPressed: () {
         setState(() {
@@ -167,7 +167,7 @@ class _CalculadoraState extends State<Calculadora> {
         });
       },
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(cor),
+        backgroundColor: MaterialStateProperty.all(cor ?? cinzaEscuro),
         minimumSize: MaterialStateProperty.all(
           const Size(80, 80),
         ),

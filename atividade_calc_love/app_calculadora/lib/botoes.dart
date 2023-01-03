@@ -1,55 +1,44 @@
-// import 'dart:html';
-// import 'package:app_calculadora/calcular.dart';
-// import 'package:flutter/material.dart';
-// import 'screen.dart';
+/* import 'package:flutter/material.dart';
+import 'screen.dart';
+import 'calcular.dart';
 
-// double tamanhoFonte = 32;
-// Color cinza = Color(0xFFA7A7A7);
-// Color cinzaEscuro = Color(0xFF413F3F);
-// Color amarelo = Color(0xFFFF9503);
-// Color c = const Color(0xFF42A5F5);
-// Calcular calc = Calcular();
+class Botao extends StatefulWidget {
+  const Botao({super.key});
 
-// // BOTÃO REDONDO
-// Widget botaoRedondo({required String tecla, cor = Colors.blueGrey}) {
-//   return ElevatedButton(
-//     onPressed: () {
-//       calc.calcular(tecla);
-//     },
-//     child: Text(
-//       tecla,
-//       style: TextStyle(fontSize: tamanhoFonte),
-//     ),
-//     style: ButtonStyle(
-//       backgroundColor: MaterialStateProperty.all(cor),
-//       minimumSize: MaterialStateProperty.all(
-//         Size(80, 80),
-//       ),
+  @override
+  State<Botao> createState() => _BotaoState();
+}
 
-//       /*padding: MaterialStateProperty.all(
-//         EdgeInsets.all(35),
-//       ),*/
-//       shape: MaterialStateProperty.all(
-//         CircleBorder(),
-//       ),
-//       /*minimumSize: MaterialStateProperty.all(
-//                             Size(75, 75),
-//                           ),*/
-//     ),
-//   );
-// }
+class _BotaoState extends State<Botao> {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          calc.calcular(tecla);
+        });
+      },
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(cor),
+        minimumSize: MaterialStateProperty.all(
+          const Size(80, 80),
+        ),
 
-// //BOTÃO ARREDONDADO
-// Widget botaoArredondado({required String tecla, Color cor = Colors.blueGrey}) {
-//   return ElevatedButton(
-//     onPressed: () {},
-//     style: ElevatedButton.styleFrom(
-//         padding: EdgeInsets.symmetric(horizontal: 77.0, vertical: 13.0),
-//         shape: StadiumBorder(),
-//         backgroundColor: cor),
-//     child: Text(
-//       tecla,
-//       style: TextStyle(color: Colors.white, fontSize: tamanhoFonte),
-//     ),
-//   );
-// }
+        /*padding: MaterialStateProperty.all(
+        EdgeInsets.all(35),
+      ),*/
+        shape: MaterialStateProperty.all(
+          const CircleBorder(),
+        ),
+        /*minimumSize: MaterialStateProperty.all(
+                            Size(75, 75),
+                          ),*/
+      ),
+      child: Text(
+        tecla,
+        style: TextStyle(fontSize: tamanhoFonte),
+      ),
+    );
+  }
+}
+ */
