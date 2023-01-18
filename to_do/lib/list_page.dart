@@ -1,16 +1,24 @@
-import 'package:flutter/material.dart';
+import 'dart:js_util';
 
-class ListPage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:to_do/cadastro.dart';
+
+class ListPage extends StatefulWidget {
   ListPage({super.key});
 
-  List<String> list = ['1'];
+  @override
+  State<ListPage> createState() => _ListPageState();
+}
+
+class _ListPageState extends State<ListPage> {
+  List<String> list = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('teste'),
+        title: Text('listpage'),
       ),
       body: ListView.separated(
         separatorBuilder: ((context, index) {
@@ -21,30 +29,30 @@ class ListPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         itemCount: list.length,
         itemBuilder: ((context, index) {
-          return Column(
-            children: [
-              Container(
-                height: 50,
-                color: Colors.blue,
-                child: Center(
-                  child: Text(list[index]),
+          return SizedBox(
+            height: 40,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  style: TextStyle(fontSize: 20),
+                  list[index],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: FloatingActionButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/cadastro');
-                  },
-                  child: Icon(Icons.add),
-                ),
-              )
-            ],
+            ),
           );
         }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var todo = await Navigator.pushNamed(context, '/cadastro');
+
+          setState(() {
+            list.add(todo.toString());
+          });
+        },
+        child: const Icon(Icons.add_circle),
       ),
     );
   }

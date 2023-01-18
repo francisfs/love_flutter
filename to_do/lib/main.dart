@@ -11,17 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
+    return MaterialApp(
       title: 'Lista de tarefas',
-      routes:{
+      routes: {
         '/': ((context) => ListPage()),
-        '/cadastro':((context) => const Cadastro())
-        
-                
+        '/cadastro': ((context) => Cadastro())
       },
       //initialRoute: '/cadastro',
-      
-      
     );
   }
 }
