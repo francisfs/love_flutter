@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class ListPage extends StatelessWidget {
   ListPage({super.key});
 
-  List<String> list = [
-    
-  ];
+  List<String> list = ['1'];
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +21,28 @@ class ListPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         itemCount: list.length,
         itemBuilder: ((context, index) {
-          return Container(
-            height: 100,
-            color: Colors.red,
-            child: Center(
-              child: Text(list[index]),
-            ),
+          return Column(
+            children: [
+              Container(
+                height: 50,
+                color: Colors.blue,
+                child: Center(
+                  child: Text(list[index]),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/cadastro');
+                  },
+                  child: Icon(Icons.add),
+                ),
+              )
+            ],
           );
         }),
       ),

@@ -28,7 +28,9 @@ class _CadastroState extends State<Cadastro> {
                   height: 25,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
                   child: const Text('salvar'),
                 )
               ],
