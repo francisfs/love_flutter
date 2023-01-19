@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'list_page.dart';
 
+
 class Cadastro extends StatefulWidget {
   Cadastro({super.key});
 
@@ -33,7 +34,9 @@ class _CadastroState extends State<Cadastro> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context,_controller.text);
+                    setState(() {
+                      Navigator.pop(context,_controller.text);
+                    });
                   },
                   child: const Text('salvar'),
                 )

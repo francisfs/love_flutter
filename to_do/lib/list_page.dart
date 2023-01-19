@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:flutter/material.dart';
 import 'package:to_do/cadastro.dart';
 
@@ -46,10 +44,14 @@ class _ListPageState extends State<ListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          var todo = await Navigator.pushNamed(context, '/cadastro');
-
+          /*var todo = await Navigator.pushNamed(context, '/cadastro');*/
+          var todo = await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => Cadastro(),
+            ),
+          );
           setState(() {
-            list.add(todo.toString());
+            list.add(todo);
           });
         },
         child: const Icon(Icons.add_circle),
