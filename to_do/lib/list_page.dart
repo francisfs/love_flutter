@@ -15,8 +15,9 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text('listpage'),
+        title: Text('Lista de Tarefas'),
       ),
       body: ListView.separated(
         separatorBuilder: ((context, index) {
@@ -54,7 +55,7 @@ class _ListPageState extends State<ListPage> {
             list.add(todo);
           });
         },
-        child: const Icon(Icons.add_circle),
+        child: const Icon(Icons.add),
       ),
     );
   }
