@@ -28,6 +28,7 @@ class _CadastroState extends State<Cadastro> {
                 Form(
                   key: _formKey,
                   child: TextFormField(
+                    decoration: InputDecoration(icon: Icon(Icons.add_box)),
                     controller: _controller,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
