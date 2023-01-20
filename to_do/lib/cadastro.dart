@@ -21,40 +21,38 @@ class _CadastroState extends State<Cadastro> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Form(
-                key: _formKey,
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "inserir atividade",
-                      floatingLabelAlignment: FloatingLabelAlignment.center),
-                  controller: _controller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'preencher o campo';
-                    }
-                    return null;
-                  },
-                  textAlign: TextAlign.center,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    controller: _controller,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'preencher o campo';
+                      }
+                      return null;
+                    },
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    setState(() {
-                      Navigator.pop(context, _controller.text);
-                    });
-                  }
-                },
-                child: const Text('salvar'),
-              )
-            ],
+                const SizedBox(
+                  height: 25,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      setState(() {
+                        Navigator.pop(context, _controller.text);
+                      });
+                    }
+                  },
+                  child: const Text('salvar'),
+                )
+              ],
+            ),
           ),
         ));
   }

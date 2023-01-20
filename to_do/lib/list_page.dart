@@ -20,7 +20,7 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       backgroundColor: tdBgColor,
       appBar: AppBar(
-        //backgroundColor: tdBgColor,
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text('Lista de Tarefas'),
       ),
