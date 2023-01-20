@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:to_do/cadastro.dart';
 import 'list_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Lista de tarefas',
       routes: {
         '/': ((context) => ListPage()),
-        '/cadastro': ((context) => Cadastro())
+        '/cadastro': ((context) => Cadastro()),
       },
       //initialRoute: '/cadastro',
     );
