@@ -51,22 +51,22 @@ class Pokemon {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['abilities'] = this.abilities;
-    data['detailPageURL'] = this.detailPageURL;
-    data['weight'] = this.weight;
-    data['weakness'] = this.weakness;
-    data['number'] = this.number;
-    data['height'] = this.height;
-    data['collectibles_slug'] = this.collectiblesSlug;
-    data['featured'] = this.featured;
-    data['slug'] = this.slug;
-    data['description'] = this.description;
-    data['name'] = this.name;
-    data['thumbnailAltText'] = this.thumbnailAltText;
-    data['thumbnailImage'] = this.thumbnailImage;
-    data['id'] = this.id;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['abilities'] = abilities;
+    data['detailPageURL'] = detailPageURL;
+    data['weight'] = weight;
+    data['weakness'] = weakness;
+    data['number'] = number;
+    data['height'] = height;
+    data['collectibles_slug'] = collectiblesSlug;
+    data['featured'] = featured;
+    data['slug'] = slug;
+    data['description'] = description;
+    data['name'] = name;
+    data['thumbnailAltText'] = thumbnailAltText;
+    data['thumbnailImage'] = thumbnailImage;
+    data['id'] = id;
+    data['type'] = type;
     return data;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'pokemon.dart';
+import 'detail_pokemon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,8 +23,8 @@ class _HomePageState extends State<HomePage> {
               scale: 22)
         ],
         shadowColor: Color.fromARGB(255, 3, 12, 192),
-        centerTitle: true,
-        title: const Text('Pokemon'),
+        centerTitle: false,
+        title: const Text('Pokedex'),
       ),
       body: Center(
         child: FutureBuilder<List<Pokemon>>(
@@ -36,12 +37,19 @@ class _HomePageState extends State<HomePage> {
                     //Pokemon pokemon = Pokemon();
                     Pokemon pokemons = snapshot.data![index];
 
-                    return Card(
-                      child: ListTile(
-                        leading:
-                            Image.network(pokemons.thumbnailImage.toString()),
-                        title: Text(pokemons.name!),
-                        trailing: Text('#00${pokemons.id!.toString()}'),
+                    return InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/details');
+                        
+                        
+                      },
+                      child: Card(
+                        child: ListTile(
+                          leading:
+                              Image.network(pokemons.thumbnailImage.toString()),
+                          title: Text(pokemons.name!),
+                          trailing: Text('#00${pokemons.id!.toString()}'),
+                        ),
                       ),
                     );
                   });
