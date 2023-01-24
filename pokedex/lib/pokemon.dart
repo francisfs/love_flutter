@@ -1,34 +1,4 @@
-
 class Pokemon {
-  bool? op;
-  String? msg;
-  List<Data>? data;
-
-  Pokemon({this.op, this.msg, this.data});
-
-  Pokemon.fromJson(Map<String, dynamic> json) {
-    op = json['op'];
-    msg = json['msg'];
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['op'] = this.op;
-    data['msg'] = this.msg;
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Data {
   List<String>? abilities;
   String? detailPageURL;
   int? weight;
@@ -45,7 +15,7 @@ class Data {
   int? id;
   List<String>? type;
 
-  Data(
+  Pokemon(
       {this.abilities,
       this.detailPageURL,
       this.weight,
@@ -62,7 +32,7 @@ class Data {
       this.id,
       this.type});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Pokemon.fromJson(Map<String, dynamic> json) {
     abilities = json['abilities'].cast<String>();
     detailPageURL = json['detailPageURL'];
     weight = json['weight'];

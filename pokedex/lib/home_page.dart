@@ -11,31 +11,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<Data>> pokemons;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    pokemons = pegarPokemons();
-  }
+  
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('pokemons'),
+        title: const Text('----'),
       ),
       body: Center(
-        child: FutureBuilder<List<Data>>(
-          future: pokemons,
+        child: FutureBuilder<List<Pokemon>>(
+          future: pegarPokemons(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     //Usuario usuario = Usuario();
-                    Data datapok = snapshot.data![index];
+                    Pokemon datapok = snapshot.data![index];
+                    
                     return ListTile(
                       title: Text(datapok.name!),
                     );
@@ -50,14 +45,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<List<Data>> pegarPokemons() async {
-    var url = Uri.parse('http://104.131.18.84/pokemon/?limit=1&page=0');
+  Future<List<Pokemon>> pegarPokemons() async {
+    var url = Uri.parse('http://104.131.18.84/pokemon/?limit=10&page=0');
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      List listaDataPok = json.decode(response.body);
-      return listaDataPok.map((json) => Data.fromJson(json)).toList();
+      Map jsonResponse = json.decode(response.body);
+      return jsonResponse['data'].map<Pokemon>((json) => Pokemon.fromJson(json)).toList();
     } else {
-      throw Exception("erro não foi possível carregar os usuários");
+      throw Exception("erro não foi possível carregar os Pokemons");
     }
   }
 }
