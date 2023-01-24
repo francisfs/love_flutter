@@ -11,14 +11,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 232, 237, 239),
       appBar: AppBar(
-        title: const Text('----'),
+        actions: [
+          Image.network(
+              'https://raw.githubusercontent.com/RafaelBarbosatec/SimplePokedex/master/assets/pokebola_img.png',
+              scale: 22)
+        ],
+        shadowColor: Color.fromARGB(255, 3, 12, 192),
+        centerTitle: true,
+        title: const Text('Pokemon'),
       ),
       body: Center(
         child: FutureBuilder<List<Pokemon>>(
@@ -28,11 +33,16 @@ class _HomePageState extends State<HomePage> {
               return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
-                    //Usuario usuario = Usuario();
-                    Pokemon datapok = snapshot.data![index];
-                    
-                    return ListTile(
-                      title: Text(datapok.name!),
+                    //Pokemon pokemon = Pokemon();
+                    Pokemon pokemons = snapshot.data![index];
+
+                    return Card(
+                      child: ListTile(
+                        leading:
+                            Image.network(pokemons.thumbnailImage.toString()),
+                        title: Text(pokemons.name!),
+                        trailing: Text('#00${pokemons.id!.toString()}'),
+                      ),
                     );
                   });
             } else if (snapshot.hasError) {
@@ -50,7 +60,9 @@ class _HomePageState extends State<HomePage> {
     var response = await http.get(url);
     if (response.statusCode == 200) {
       Map jsonResponse = json.decode(response.body);
-      return jsonResponse['data'].map<Pokemon>((json) => Pokemon.fromJson(json)).toList();
+      return jsonResponse['data']
+          .map<Pokemon>((json) => Pokemon.fromJson(json))
+          .toList();
     } else {
       throw Exception("erro não foi possível carregar os Pokemons");
     }
